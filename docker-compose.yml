@@ -43,6 +43,7 @@ services:
     container_name: fluidd
     ports:
       - 8010:80
+    restart: unless-stopped
     depends_on: 
       - klipper
       # - klipper_another_printer
