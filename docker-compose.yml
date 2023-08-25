@@ -2,7 +2,7 @@ version: '2'
 
 services:
   klipper:
-    image: dimalo/klipper-moonraker
+    image: dimalo/klipper-moonraker:latest
     build:
       dockerfile: ./klipper/Dockerfile
       context: .
@@ -36,7 +36,7 @@ services:
         max-size: "10m"
 
   fluidd:
-    image: dimalo/fluidd
+    image: dimalo/fluidd:latest
     # build:
     #   dockerfile: Dockerfile
     #   context: frontend
