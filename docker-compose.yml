@@ -1,6 +1,23 @@
 version: '2'
 
 services:
+  ustreamer: 
+    build: 
+      dockerfile: ./ustreamer/pkg/docker/Dockerfile.arm.native
+      context: .
+    container_name: ustreamer
+    ports:
+      - 8080:8080
+    volumes:
+      - /dev:/dev
+    privileged: true
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "3"
+        max-size: "10m"
+    depends_on:
+      - klipper
   klipper:
     image: dimalo/klipper-moonraker:latest
     build:
@@ -37,9 +54,6 @@ services:
 
   fluidd:
     image: dimalo/fluidd:latest
-    # build:
-    #   dockerfile: Dockerfile
-    #   context: frontend
     container_name: fluidd
     ports:
       - 8010:80
@@ -55,23 +69,6 @@ services:
       options:
         max-file: "3"
         max-size: "10m"
-
-  # mainsail:
-  #   image: dimalo/mainsail
-  #   build:
-  #     dockerfile: Dockerfile
-  #     context: frontend
-  #     args:
-  #       FRONTEND_ZIP_URL: https://github.com/meteyou/mainsail/releases/latest/download/mainsail.zip
-  #   container_name: mainsail
-  #   ports:
-  #     - 8011:80
-  #   depends_on: 
-  #     - klipper
-  #     # - klipper_another_printer
-  #   links:
-  #     - klipper:klipper
-  #     # - klipper_another_printer:klipper_another_printer
 
 volumes: 
   gcode_files:
