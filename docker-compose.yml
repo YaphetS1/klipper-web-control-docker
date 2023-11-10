@@ -1,21 +1,6 @@
 version: '2'
 
 services:
-  camera-streamer: 
-    build: 
-      dockerfile: ./docker/Dockerfile.arm.native
-      context: ./camera-streamer/
-    container_name: camera
-    ports:
-      - 8080:8080
-    devices:
-      - /dev/:/dev/
-    privileged: true
-    logging:
-      driver: "json-file"
-      options:
-        max-file: "3"
-        max-size: "10m"
   # ustreamer: 
   #   build: 
   #     dockerfile: ./pkg/docker/Dockerfile.arm.native
