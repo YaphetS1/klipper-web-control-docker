@@ -3,14 +3,15 @@ version: '2'
 services:
   ustreamer: 
     build: 
-      dockerfile: ./ustreamer/pkg/docker/Dockerfile.arm.native
-      context: .
+      dockerfile: ./pkg/docker/Dockerfile.arm.native
+      context: ./ustreamer/
     container_name: ustreamer
     ports:
       - 8080:8080
-    volumes:
-      - /dev:/dev
-    privileged: true
+    devices:
+      - /dev/video0:/dev/video0
+      - /dev/video31:/dev/video31
+      - /dev/video11:/dev/video11
     logging:
       driver: "json-file"
       options:

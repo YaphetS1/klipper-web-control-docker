@@ -1,3 +1,6 @@
 [submodule "ustreamer"]
 	path = ustreamer
 	url = git@github.com:pikvm/ustreamer.git
+[submodule "camera-streamer"]
+	path = camera-streamer
+	url = git@github.com:YaphetS1/camera-streamer.git
