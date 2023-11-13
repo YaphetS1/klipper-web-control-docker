@@ -156,3 +156,8 @@ COPY --chown=${USER}:${USER} klipper/run_in_venv /usr/local/bin/run_in_venv
 COPY klipper/supervisord.conf /etc/supervisor/supervisord.conf
 COPY klipper/*.ini /etc/supervisor/conf.d/
 CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf"]
+
+# RUN git clone --single-branch --branch master https://github.com/TheSpaghettiDetective/moonraker-obico.git
+# RUN sed -i '/sudo/d' ./moonraker-obico/install.sh
+# RUN sed -i 's/virtualenv -p \/usr\/bin\/python3 --system-site-packages "${OBICO_ENV}"/python3 -m venv "${OBICO_ENV}"/' ./moonraker-obico/scripts/funcs.sh
+# RUN cd ./moonraker-obico && ./install.sh

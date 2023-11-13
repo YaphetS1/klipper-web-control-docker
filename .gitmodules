@@ -4,3 +4,6 @@
 [submodule "camera-streamer"]
 	path = camera-streamer
 	url = git@github.com:YaphetS1/camera-streamer.git
+[submodule "moonraker-obico"]
+	path = moonraker-obico
+	url = https://github.com/TheSpaghettiDetective/moonraker-obico.git
