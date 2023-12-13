@@ -37,6 +37,7 @@ services:
       - ./config:/home/klippy/.config
       - moonraker_data:/home/klippy/.moonraker_database
       - /dev:/dev
+      - ./moonraker-obico/include_cfgs:/home/klippy/moonraker-obico/include_cfgs
       # - ./printer.cfg:/home/klippy/.config/printer.cfg
     # mount serial device - take care to grant sufficient permissions to the device: <host_dev>:<container_dev>
     # put <container_dev> into your printer.cfg
